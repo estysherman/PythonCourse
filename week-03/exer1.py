@@ -1,3 +1,7 @@
+"""
+Bool Pgiaa Game
+"""
+
 import random
 
 
