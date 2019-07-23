@@ -60,7 +60,7 @@ def calc_bool_pgiaa(num):
 # The program
 win = False
 secret_number = get_secret_number()
-print(secret_number)
+
 
 for i in range(0, 20):
     guess = get_valid_input()
