@@ -1,1 +1,13 @@
+1234
+bool: 0,  pgiaa: 1
+
+2345
+bool: 1,  pgiaa: 0
+
+5678
+bool: 0,  pgiaa: 2
+
+1234
+bool: 0,  pgiaa: 2
+
 
