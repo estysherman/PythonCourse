@@ -27,6 +27,12 @@ def is_unique_number(num):
     return True
 
 
+# Save to file
+def save_to_file(line):
+    with open(file_name, "a", encoding="UTF-8") as f:
+        f.write(line+"\n")
+
+
 # Check if the input is valid
 def get_valid_input():
     valid = False
@@ -57,20 +63,34 @@ def calc_bool_pgiaa(num):
     return result
 
 
-# The program
+# The Game
+file_name = "bool_pgiaa.txt"
 win = False
 secret_number = get_secret_number()
+print(secret_number)
+
+# read the game from file
+with open(file_name, "r", encoding="UTF-8") as game:
+    played_games = 0
+    for line in game:
+        print(line, end="")
+        played_games += 1
+
+    games_remaining = 20 - int(played_games / 3)
 
 
-for i in range(0, 20):
+for i in range(0, games_remaining):
     guess = get_valid_input()
+    save_to_file(guess)
 
     result = calc_bool_pgiaa(guess)
 
     bool_list = [b for b in result if b == '*']
     pgiaa_list = [p for p in result if p == '-']
 
-    print(f"bool: {len(bool_list)},  pgiaa: {len(pgiaa_list)}\n")
+    score = f"bool: {len(bool_list)},  pgiaa: {len(pgiaa_list)}\n"
+    save_to_file(score)
+    print(score)
 
     if len(bool_list) == 4:
         win = True
@@ -80,6 +100,9 @@ if win:
     print("You are the Winner !!!")
 else:
     print("You failed  :(")
+
+
+
 
 
 
